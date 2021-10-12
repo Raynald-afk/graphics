@@ -1,0 +1,44 @@
+# write a prgram that gives an information about
+# a person when the person name is typed in a program
+# complete it today
+def information():
+    dictionary = {"John": ["Tucson", "55247-345-623", "Contracter"],
+                  "Peter": ["New York", "5546-335-623", "Business man"],
+                  "Francis": ["Chicago", "3441-098-786", "Teacher"],
+                  "George": ["Alabama", "3121-145-132", "Investor"],
+                  "Felicity": ["Texas", "3471-145-723", "Technician"],
+                  "Priscilla": ["Oklohoma", "3242-243-876", "Truck Driver"],
+                  "Mary": ["Maryland", "7483-135-223", "Maison"],
+                  "James": ["Florida", "9842-125-453", "Doctor"]
+                  }
+    return dictionary
+
+
+def person_Info():
+    info_dic = information()
+    user = input("Enter Person's Info:\n")
+    if user.startswith("/")or user.startswith(",")or user.startswith(".")or user.startswith("\\") or user.startswith("?") or user.startswith(":"):
+        user.lstrip()
+    while user not in info_dic:
+        user = input("PLease Enter a Valid Name:😊\n")
+    else:
+        return info_dic[user],user
+
+
+
+def output():
+    information,user = person_Info()
+    var = len(information[0])-2
+    vars = len(information[1]) - 3
+    print("--",user+"'s Personal Info....","--")
+    print("Place"+var*" "+"Location"+vars*" "+"Occupation")
+    print(information[0]," ",information[1],"   ",information[2])
+
+
+
+def main():
+    while True:
+        output()
+
+
+main()
